@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="style1.css" />
+
+	<style>
+
+#fake{
+	  height: 3000px
+}
+
+.progress-bar {
+  height: 2em;
+  line-height: 2em;
+}
+
+.skill {
+  margin-top: .25em;
+}
+
+/*-----*/
+.progress-bar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #007bff;
+    transition: width .6s ease;
+    overflow: none;
+    width: 70%;
+}
+.progress-bar-title{
+    margin-bottom: 5px;
+}
+#section{
+	width: 50%
+}
+/*-----------------------------------------------------------------*/
+
+
+	</style>
+</head>
+<body>
+<div id="fake">
+  
+</div>
+
+      <br><hr>
+      <div class="main">
+       <h3>Skills estimated percentages:</h3>
+       <section id="section">
+        <div class="row skill">
+          <div class="col-3">
+            <h5 class="progress-bar-title">Html5</h5>
+          </div>
+          <div class="col-9">
+            <div class="progress">
+              <div id="html-progress" class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row skill">
+          <div class="col-3">
+            <h5 class="progress-bar-title">Css3</h5>
+          </div>
+          <div class="col-9">
+            <div class="progress">
+              <div id="css-progress" class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row skill">
+          <div class="col-3">
+            <h5 class="progress-bar-title">JavaScript</h5>
+          </div>
+          <div class="col-9">
+            <div class="progress">
+              <div id="javascript-progress" class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row skill">
+          <div class="col-3">
+            <h5 class="progress-bar-title">Bootstrap</h5>
+          </div>
+          <div class="col-9">
+            <div class="progress">
+              <div id="bootstrap-progress" class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row skill">
+          <div class="col-3">
+            <h5 class="progress-bar-title">jQuery</h5>
+          </div>
+          <div class="col-9">
+            <div class="progress">
+              <div id="jquery-progress" class="progress-bar "></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row skill">
+          <div class="col-3">
+            <h5 class="progress-bar-title">Responsive web design</h5>
+          </div>
+          <div class="col-9">
+            <div class="progress">
+              <div id="responsive-progress" class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <div class="row skill">
+          <div class="col-3">
+            <h5 class="progress-bar-title">UI & UX design</h5>
+          </div>
+          <div class="col-9">
+            <div class="progress">
+              <div id="uiux-progress" class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row skill">
+          <div class="col-3">
+            <h5 class="progress-bar-title">Php</h5>
+          </div>
+          <div class="col-9">
+            <div class="progress">
+              <div id="php-progress" class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    
+
+<div id="fake">
+	
+</div>
+
+<script>
+
+
+// window.onscroll = function() {scrollFunction()};
+
+// function scrollFunction() {
+//     if (document.getElementsByTagName('section')) {
+//         $(progressBarAnimation);
+//     } else {
+//         document.getElementById('section');
+//     }
+// }
+ 
+function progressBarAnimation() {
+  function updatePercent() {
+    const currentWidth = $(this).width() / $(this).parent().width() * 10;
+    $(this).text(currentWidth.toFixed() + '/10');
+  }
+  $('#html-progress').animate({width: '90%'}, {duration: 20, step: updatePercent});
+  $('#css-progress').animate({width: '88%'}, {duration: 20, step: updatePercent});
+  $('#javascript-progress').animate({width: '70%'}, {duration: 20, step: updatePercent});
+  $('#bootstrap-progress').animate({width: '80%'}, {duration: 20, step: updatePercent});
+  $('#jquery-progress').animate({width: '60%'}, {duration: 20, step: updatePercent});
+  $('#responsive-progress').animate({width: '90%'}, {duration: 20, step: updatePercent});
+  $('#php-progress').animate({width: '50%'}, {duration: 20, step: updatePercent});
+  $('#uiux-progress').animate({width: '60%'}, {duration: 20, step: updatePercent});
+
+}
+
+$(window).scroll(function() {
+    var top_of_element = $("#section").offset().top;
+    var bottom_of_element = $("#section").offset().top + $("#section").outerHeight();
+    var bottom_of_screen = $(window).scrollTop() + window.innerHeight;
+    var top_of_screen = $(window).scrollTop();
+
+    if((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
+        // The element is visible, do something
+        $(progressBarAnimation);
+    }
+    else {
+        // The element is not visible, do something else
+        $(progressBarAnimation).stop();
+    }
+});
+
+
+
+</script>
+</body>
+</html>
